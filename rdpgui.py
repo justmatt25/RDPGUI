@@ -149,7 +149,7 @@ class Ui_RDPGUI(object):
 		DomainFlag = config.get("DEFAULT", "RDPDomainFlags") + config.get("DEFAULT", "RDPDomain")
 		UserFlag = config.get("DEFAULT", "RDPUserFlags") + self.RDPusername.text()
 	User_Pass = config.get("DEFAULT", "RDPPasswordFlags") + self.RDPpassword.text() + ' ' + UserFlag
-	commandline = str(config.get("DEFAULT", "RDPBinary") + ' ' + DomainFlag +' '+ User_Pass + ' ' + config.get("DEFAULT", "RDPDefaulfFlags") + ' ' + config.get("DEFAULT", "RDPExtraFlags") + ' ' + ServerFlag)
+	commandline = str(config.get("DEFAULT", "RDPBinary") + ' ' + config.get("DEFAULT", "RDPOptions") +' ' + DomainFlag +' '+ User_Pass + ' ' + config.get("DEFAULT", "RDPDefaulfFlags") + ' ' + config.get("DEFAULT", "RDPExtraFlags") + ' ' + ServerFlag)
 	#cleaning dquote from confi.ini params
 	commandline = re.sub('["]','',commandline)
 	#print commandline
@@ -195,4 +195,5 @@ if __name__ == "__main__":
     RDPGUI.show()
     RDPGUI.setFixedSize(RDPGUI.size());
     sys.exit(app.exec_())
+
 
